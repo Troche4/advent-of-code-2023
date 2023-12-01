@@ -1,5 +1,5 @@
 import * as React from "react";
-import textfile from "./resources/2.txt"
+import textfile from "./resources/1.txt"
 
 export const Day2 = () => {
     const [data, setData] = React.useState(null);
@@ -7,28 +7,30 @@ export const Day2 = () => {
     React.useEffect(() => {
         fetch(textfile).then((txt) => {
             txt.text().then((t) => {
-                let data = t.split("\n").map(item => parseInt(item))
+                let data = t.split("\n")
                 setData(data);
             })   
         })
     }, []);
 
-    const getSolution = (data) => {
+    const getSolution1 = (data) => {
         if (data == null || data.length == 0) {
             return
         }
 
-        let out = [];
-
-        for (let i = 0; i< data.length; i++) {
-            if (i % 2 == 0) {
-                out.push(data[i])
-            }
-        }
-        return out.reduce((partialSum, x) => partialSum + x)
+        return "one"
     }
 
-    
-    
-    return <div>{getSolution(data)}</div> 
+    const getSolution2 = (data) => {
+        if (data == null || data.length == 0) {
+            return
+        }
+
+        return "two"
+    }
+
+    return <div>
+        {getSolution1(data)}<br/>
+        {getSolution2(data)}
+    </div> 
 }
