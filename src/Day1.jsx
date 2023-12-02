@@ -14,14 +14,14 @@ export const Day1 = () => {
     }, []);
 
     const getSolution1 = (data) => {
-        if (data == null || data.length == 0) {
+        if (data === null || data.length === 0) {
             return
         }
 
         let rowNumbers = [];
         data.forEach((row) => {
             let numberString = row.split("").filter(char => ['1','2','3','4','5','6','7','8','9','0'].includes(char));
-            if (numberString.length == 1) {
+            if (numberString.length === 1) {
                 rowNumbers.push(numberString + numberString);
             } else {
                 rowNumbers.push(numberString[0] + numberString[numberString.length -1]);
@@ -37,7 +37,7 @@ export const Day1 = () => {
     }
 
     const getSolution2 = (data) => {
-        if (data == null || data.length == 0) {
+        if (data === null || data.length === 0) {
             return
         }
 
@@ -61,7 +61,7 @@ export const Day1 = () => {
             row = row.replaceAll("eight", "8");
             row = row.replaceAll("nine", "9");
             let numberString = row.split("").filter(char => ['1','2','3','4','5','6','7','8','9','0'].includes(char));
-            if (numberString.length == 1) {
+            if (numberString.length === 1) {
                 rowNumbers.push(numberString + numberString);
             } else {
                 rowNumbers.push(numberString[0] + numberString[numberString.length -1]);
