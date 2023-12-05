@@ -1,5 +1,5 @@
 import * as React from "react";
-import textfile from "./resources/3.reddit.txt"
+import textfile from "./resources/3.txt"
 
 export const Day3 = () => {
     const [data, setData] = React.useState(null);
@@ -117,17 +117,14 @@ export const Day3 = () => {
                     })
 
                     let uniqueNumbers = new Set(parsedNumbers);
-                    if (parsedNumbers.length < 3 && uniqueNumbers.size < 2) {
-                        console.log(parsedNumbers);
+
+                    if (parsedNumbers.length < 4 && parsedNumbers.length > 1 && uniqueNumbers.size < 3) {
                         total += [...parsedNumbers].reduce((partial, x) => partial * x);    
 
                     }
                 }
             })
         })
-
-        // TODO handle when the same number appears on a gear. i.e. 78 * 78 is valid
-        // TODO handle when there's two unique numbers but more than two numbers on the gear. i.e. 2.5 * 5 is invalid
 
         return total
     }
